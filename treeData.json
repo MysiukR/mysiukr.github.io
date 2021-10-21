@@ -1,49 +1,38 @@
 [
   {
-    "id": "1",
-    "location": "MG Uhersko-Lviv",
-    "devices": [
+    "name": "MG Uhersko-Lviv",
+    "parent": "null",
+    "children": [
       {
-        "deviceName": "BVC-K",
-        "l1": {
-          "value": "0",
-          "units": "m"
-        },
-        "J": {
-          "value": "0.85",
-          "units": "A"
-        },
-        "h": {
-          "value": "1.7",
-          "units": "m"
-        }
+        "name": "devices",
+        "parent": "MG Uhersko-Lviv",
+        "children": [
+          {
+            "name": "BVC-K",
+            "parent": "devices",
+            "children": [
+              {
+                "name": "l1",
+                "parent": "BVC-K"
+              },
+              {
+                "name": "J",
+                "parent": "BVC-K"
+              },{
+                "name": "h",
+                "parent": "BVC-K"
+              }
+            ]
+          },
+          {
+            "name": "VPP-M",
+            "parent": "devices"
+          }
+        ]
       },
       {
-        "deviceName": "VPP-M",
-        "Lu": {
-          "value": null,
-          "units": "m"
-        },
-        "Umg": {
-          "value": null,
-          "units": "V"
-        },
-        "Vmg": {
-          "value": null,
-          "units": "V"
-        },
-        "Ugg": {
-          "value": null,
-          "units": "V"
-        },
-        "Vgg": {
-          "value": null,
-          "units": "V"
-        },
-        "Up": {
-          "value": null,
-          "units": "V"
-        }
+        "name": "WG Lipnyky-Persenkivka",
+        "parent": "Top Level"
       }
     ]
   }
