@@ -22,373 +22,373 @@
                       {
                         "name": "value",
                         "parent": "l1",
-						"children": [
+                        "children": [
                           {
                             "name": null,
                             "parent": "l1"
-                          }
-                      },
-                      {
-                        "name": "units",
-                        "parent": "l1",
-						"children": [
-                          {
-                            "name": null,
-                            "parent": "l1"
-                          }
-                      }
-                    ]
-                  },
-                  {
-                    "name": "J",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "J",
-						"children": [
-                          {
-                            "name": null,
-                            "parent": "J"
-                          }
-                      },
-                      {
-                        "name": "units",
-                        "parent": "J",
-						"children": [
-                          {
-                            "name": null,
-                            "parent": "J"
-                          }
-                      }
-                    ]
-                  },
-                  {
-                    "name": "h",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "h",
-						"children": [
-                          {
-                            "name": null,
-                            "parent": "h"
-                          }
-                      },
-                      {
-                        "name": "units",
-                        "parent": "h",
-						"children": [
-                          {
-                            "name": null,
-                            "parent": "h"
-                          }
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "name": "VPP-M",
-                "parent": "devices",
-                "children": [
-                  {
-                    "name": "BVC-K",
-                    "parent": "devices",
-                    "children": [
-                      {
-                        "name": "Lu",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Lu",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Lu"
-                          }
+                          }]
                           },
                           {
                             "name": "units",
-                            "parent": "Lu",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Lu"
-                          }
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Umg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Umg",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Umg"
-                          }
+                            "parent": "l1",
+                            "children": [
+                              {
+                                "name": null,
+                                "parent": "l1"
+                              }]
+                              }
+                            ]
                           },
                           {
-                            "name": "units",
-                            "parent": "Umg",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Umg"
-                          }
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Vmg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vmg",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Vmg"
-                          }
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vmg",
-							"children": [
-                          {
-                            "name": null,
-                            "parent": "Vmg"
-                          }
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Ugg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Ugg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Ugg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Vgg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vgg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vgg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Up",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Up"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Up"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "WG Lipnyky-Persenkivka",
-        "parent": "location",
-        "children": [
-          {
-            "name": "devices",
-            "parent": "WG Lipnyky-Persenkivka",
-            "children": [
-              {
-                "name": "BVC-K",
-                "parent": "devices",
-                "children": [
-                  {
-                    "name": "ln",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "ln"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "ln"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "J",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "J"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "J"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "h",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "h"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "h"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "deltaLn",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "deltaLn"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "deltaLn"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "name": "VPP-M",
-                "parent": "devices",
-                "children": [
-                  {
-                    "name": "BVC-K",
-                    "parent": "devices",
-                    "children": [
-                      {
-                        "name": "Lu",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Lu"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Lu"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Umg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Umg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Umg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Vmg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vmg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vmg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Ugg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Ugg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Ugg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Vgg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vgg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vgg"
-                          }
-                        ]
-                      },
-                      {
-                        "name": "Up",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Up"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Up"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-  ]
+                            "name": "J",
+                            "parent": "BVC-K",
+                            "children": [
+                              {
+                                "name": "value",
+                                "parent": "J",
+                                "children": [
+                                  {
+                                    "name": null,
+                                    "parent": "J"
+                                  }]
+                                  },
+                                  {
+                                    "name": "units",
+                                    "parent": "J",
+                                    "children": [
+                                      {
+                                        "name": null,
+                                        "parent": "J"
+                                      }]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "name": "h",
+                                    "parent": "BVC-K",
+                                    "children": [
+                                      {
+                                        "name": "value",
+                                        "parent": "h",
+                                        "children": [
+                                          {
+                                            "name": null,
+                                            "parent": "h"
+                                          }]
+                                          },
+                                          {
+                                            "name": "units",
+                                            "parent": "h",
+                                            "children": [
+                                              {
+                                                "name": null,
+                                                "parent": "h"
+                                              }]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "name": "VPP-M",
+                                        "parent": "devices",
+                                        "children": [
+                                          {
+                                            "name": "BVC-K",
+                                            "parent": "devices",
+                                            "children": [
+                                              {
+                                                "name": "Lu",
+                                                "parent": "BVC-K",
+                                                "children": [
+                                                  {
+                                                    "name": "value",
+                                                    "parent": "Lu",
+                                                    "children": [
+                                                      {
+                                                        "name": null,
+                                                        "parent": "Lu"
+                                                      }]
+                                                      },
+                                                      {
+                                                        "name": "units",
+                                                        "parent": "Lu",
+                                                        "children": [
+                                                          {
+                                                            "name": null,
+                                                            "parent": "Lu"
+                                                          }]
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "name": "Umg",
+                                                        "parent": "BVC-K",
+                                                        "children": [
+                                                          {
+                                                            "name": "value",
+                                                            "parent": "Umg",
+                                                            "children": [
+                                                              {
+                                                                "name": null,
+                                                                "parent": "Umg"
+                                                              }]
+                                                              },
+                                                              {
+                                                                "name": "units",
+                                                                "parent": "Umg",
+                                                                "children": [
+                                                                  {
+                                                                    "name": null,
+                                                                    "parent": "Umg"
+                                                                  }]
+                                                                  }
+                                                                ]
+                                                              },
+                                                              {
+                                                                "name": "Vmg",
+                                                                "parent": "BVC-K",
+                                                                "children": [
+                                                                  {
+                                                                    "name": "value",
+                                                                    "parent": "Vmg",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": null,
+                                                                        "parent": "Vmg"
+                                                                      }]
+                                                                      },
+                                                                      {
+                                                                        "name": "units",
+                                                                        "parent": "Vmg",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": null,
+                                                                            "parent": "Vmg"
+                                                                          }]
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Ugg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Ugg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Ugg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Vgg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Vgg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Vgg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Up",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Up"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Up"
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "name": "WG Lipnyky-Persenkivka",
+                                                        "parent": "location",
+                                                        "children": [
+                                                          {
+                                                            "name": "devices",
+                                                            "parent": "WG Lipnyky-Persenkivka",
+                                                            "children": [
+                                                              {
+                                                                "name": "BVC-K",
+                                                                "parent": "devices",
+                                                                "children": [
+                                                                  {
+                                                                    "name": "ln",
+                                                                    "parent": "BVC-K",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": "value",
+                                                                        "parent": "ln"
+                                                                      },
+                                                                      {
+                                                                        "name": "units",
+                                                                        "parent": "ln"
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "name": "J",
+                                                                    "parent": "BVC-K",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": "value",
+                                                                        "parent": "J"
+                                                                      },
+                                                                      {
+                                                                        "name": "units",
+                                                                        "parent": "J"
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "name": "h",
+                                                                    "parent": "BVC-K",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": "value",
+                                                                        "parent": "h"
+                                                                      },
+                                                                      {
+                                                                        "name": "units",
+                                                                        "parent": "h"
+                                                                      }
+                                                                    ]
+                                                                  },
+                                                                  {
+                                                                    "name": "deltaLn",
+                                                                    "parent": "BVC-K",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": "value",
+                                                                        "parent": "deltaLn"
+                                                                      },
+                                                                      {
+                                                                        "name": "units",
+                                                                        "parent": "deltaLn"
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              },
+                                                              {
+                                                                "name": "VPP-M",
+                                                                "parent": "devices",
+                                                                "children": [
+                                                                  {
+                                                                    "name": "BVC-K",
+                                                                    "parent": "devices",
+                                                                    "children": [
+                                                                      {
+                                                                        "name": "Lu",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Lu"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Lu"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Umg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Umg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Umg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Vmg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Vmg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Vmg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Ugg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Ugg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Ugg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Vgg",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Vgg"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Vgg"
+                                                                          }
+                                                                        ]
+                                                                      },
+                                                                      {
+                                                                        "name": "Up",
+                                                                        "parent": "BVC-K",
+                                                                        "children": [
+                                                                          {
+                                                                            "name": "value",
+                                                                            "parent": "Up"
+                                                                          },
+                                                                          {
+                                                                            "name": "units",
+                                                                            "parent": "Up"
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
