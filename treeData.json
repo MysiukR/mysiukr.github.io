@@ -16,22 +16,16 @@
                                 "parent": "devices",
                                 "children": [
                                     {
-                                        "name": "params",
-                                        "parent": "BVC-K",
-                                        "children": [
-                                            {
-                                                "name": "l1",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "J",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "h",
-                                                "parent": "params"
-                                            }
-                                        ]
+                                        "name": "l1",
+                                        "parent": "BVC-K"
+                                    },
+                                    {
+                                        "name": "J",
+                                        "parent": "BVC-K"
+                                    },
+                                    {
+                                        "name": "h",
+                                        "parent": "BVC-K"
                                     }
                                 ]
                             },
@@ -40,34 +34,28 @@
                                 "parent": "devices",
                                 "children": [
                                     {
-                                        "name": "params",
-                                        "parent": "VPP-M",
-                                        "children": [
-                                            {
-                                                "name": "Lu",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Umg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Vmg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Ugg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Vgg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Up",
-                                                "parent": "params"
-                                            }
-                                        ]
+                                        "name": "Lu",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Umg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Vmg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Ugg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Vgg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Up",
+                                        "parent": "VPP-M"
                                     }
                                 ]
                             }
@@ -88,26 +76,20 @@
                                 "parent": "devices",
                                 "children": [
                                     {
-                                        "name": "params",
-                                        "parent": "BVC-K",
-                                        "children": [
-                                            {
-                                                "name": "ln",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "J",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "h",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "deltaLn",
-                                                "parent": "params"
-                                            }
-                                        ]
+                                        "name": "ln",
+                                        "parent": "BVC-K"
+                                    },
+                                    {
+                                        "name": "J",
+                                        "parent": "BVC-K"
+                                    },
+                                    {
+                                        "name": "h",
+                                        "parent": "BVC-K"
+                                    },
+                                    {
+                                        "name": "deltaLn",
+                                        "parent": "BVC-K"
                                     }
                                 ]
                             },
@@ -116,34 +98,28 @@
                                 "parent": "devices",
                                 "children": [
                                     {
-                                        "name": "params",
-                                        "parent": "VPP-M",
-                                        "children": [
-                                            {
-                                                "name": "Lu",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Umg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Vmg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Ugg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Vgg",
-                                                "parent": "params"
-                                            },
-                                            {
-                                                "name": "Up",
-                                                "parent": "params"
-                                            }
-                                        ]
+                                        "name": "Lu",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Umg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Vmg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Ugg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Vgg",
+                                        "parent": "VPP-M"
+                                    },
+                                    {
+                                        "name": "Up",
+                                        "parent": "VPP-M"
                                     }
                                 ]
                             }
