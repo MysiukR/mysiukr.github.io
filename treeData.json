@@ -1,26 +1,722 @@
 [
   {
-  "name": "Top Level",
-  "parent": "null",
-  "children": [
-    {
-      "name": "Level 2: A",
-      "parent": "Top Level",
-      "children": [
-        {
-          "name": "Son of A",
-          "parent": "Level 2: A"
+    "id": "1",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "0",
+          "units": "m"
         },
-        {
-          "name": "Daughter of A",
-          "parent": "Level 2: A"
+        "J": {
+          "value": "0.85",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.7",
+          "units": "m"
         }
-      ]
-    },
-    {
-      "name": "Level 2: B",
-      "parent": "Top Level"
-    }
-  ]
-}
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": null,
+          "units": "m"
+        },
+        "Umg": {
+          "value": null,
+          "units": "V"
+        },
+        "Vmg": {
+          "value": null,
+          "units": "V"
+        },
+        "Ugg": {
+          "value": null,
+          "units": "V"
+        },
+        "Vgg": {
+          "value": null,
+          "units": "V"
+        },
+        "Up": {
+          "value": null,
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "20",
+          "units": "m"
+        },
+        "J": {
+          "value": "0.87",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.8",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "10",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.05",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "0.81",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.017",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.097",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.91",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "40",
+          "units": "m"
+        },
+        "J": {
+          "value": "0.99",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.9",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "30",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.06",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "0.84",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.035",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.215",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.92",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "60",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.05",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.8",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "50",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.08",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "0.87",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.021",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.127",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.94",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "80",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.08",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.9",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "70",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.09",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "0.91",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.015",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.091",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.94",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "100",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.12",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.0",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "90",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.12",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "0.96",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.016",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.093",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.95",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "120",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.16",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.0",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "110",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.15",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.01",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.014",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.085",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.98",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "140",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.21",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.9",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "130",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.17",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.04",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.017",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.101",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-0.99",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "160",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.29",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.1",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "150",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.20",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.09",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.021",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.131",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.03",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "180",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.39",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.1",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "170",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.22",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.14",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.031",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.193",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.04",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "200",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.48",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.9",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "190",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.23",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.17",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.030",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.185",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.04",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "220",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.54",
+          "units": "A"
+        },
+        "h": {
+          "value": "1.8",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "210",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.25",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.19",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.015",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.088",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.05",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "240",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.57",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.3",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "230",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.25",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.21",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.017",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.103",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.05",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "260",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.60",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.5",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "250",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.27",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.23",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.016",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.099",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.07",
+          "units": "V"
+        }
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "location": "MG Uhersko-Lviv",
+    "devices": [
+      {
+        "deviceName": "BVC-K",
+        "l1": {
+          "value": "280",
+          "units": "m"
+        },
+        "J": {
+          "value": "1.62",
+          "units": "A"
+        },
+        "h": {
+          "value": "2.5",
+          "units": "m"
+        }
+      },
+      {
+        "deviceName": "VPP-M",
+        "Lu": {
+          "value": "270",
+          "units": "m"
+        },
+        "Umg": {
+          "value": "-1.31",
+          "units": "V"
+        },
+        "Vmg": {
+          "value": "1.28",
+          "units": "V"
+        },
+        "Ugg": {
+          "value": "-0.017",
+          "units": "V"
+        },
+        "Vgg": {
+          "value": "0.095",
+          "units": "V"
+        },
+        "Up": {
+          "value": "-1.08",
+          "units": "V"
+        }
+      }
+    ]
+  }
 ]
