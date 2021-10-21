@@ -24,7 +24,7 @@
                         "parent": "l1",
                         "children": [
                           {
-                            "name": null,
+                            "name": "null",
                             "parent": "l1"
                           }]
                           },
@@ -33,7 +33,7 @@
                             "parent": "l1",
                             "children": [
                               {
-                                "name": null,
+                                "name": "null",
                                 "parent": "l1"
                               }]
                               }
@@ -48,7 +48,7 @@
                                 "parent": "J",
                                 "children": [
                                   {
-                                    "name": null,
+                                    "name": "null",
                                     "parent": "J"
                                   }]
                                   },
