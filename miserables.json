@@ -10,8 +10,8 @@
   "links": [
     {"source": "MG Uhersko-Lviv", "target": "devices", "value": 1},
     {"source": "WG Lipnyky-Persenkivka", "target": "devices", "value": 8},
-	  {"source": "devices", "target": "BVC-K", "value": 1},
+    {"source": "devices", "target": "BVC-K", "value": 1},
     {"source": "devices", "target": "VPP-M", "value": 8},
-	  {"source": "VPP-M", "target": "devices", "value": 1},
+	{"source": "VPP-M", "target": "devices", "value": 1}
   ]
 }
