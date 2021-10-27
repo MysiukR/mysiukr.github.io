@@ -11,15 +11,15 @@
 	{"id": "h", "group": 4}
   ],
   "links": [
-    {"source": "MG Uhersko-Lviv", "target": "location", "value": 1},
-	{"source": "WG Lipnyky-Persenkivka", "target": "location", "value": 1},
+    {"source": "location", "target": "MG Uhersko-Lviv", "value": 1},
+	{"source": "location", "target": "WG Lipnyky-Persenkivka", "value": 1},
     {"source": "MG Uhersko-Lviv", "target": "devices", "value": 1},
     {"source": "WG Lipnyky-Persenkivka", "target": "devices", "value": 1},
     {"source": "devices", "target": "BVC-K", "value": 1},
     {"source": "devices", "target": "VPP-M", "value": 1},
-	{"source": "ln", "target": "BVC-K", "value": 1},
-	{"source": "J", "target": "BVC-K", "value": 1},
-	{"source": "h", "target": "BVC-K", "value": 1},
-	{"source": "Umg", "target": "VPP-M", "value": 1}
+	{"source": "BVC-K", "target": "ln", "value": 1},
+	{"source": "BVC-K", "target": "J", "value": 1},
+	{"source": "BVC-K", "target": "h", "value": 1},
+	{"source": "VPP-M", "target": "Umg", "value": 1}
   ]
 }
