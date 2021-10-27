@@ -7,7 +7,13 @@
 	{"id": "VPP-M", "group": 3},
     {"id": "Umg", "group": 4},
 	{"id": "h", "group": 4},
-	{"id": "J", "group": 4}
+	{"id": "J", "group": 4},
+	{"id": "ln", "group": 4},
+	{"id": "Vmg", "group": 4},
+	{"id": "Ugg", "group": 4},
+	{"id": "Vgg", "group": 4},
+	{"id": "Up", "group": 4},
+	{"id": "deltaLn", "group": 4}
   ],
   "links": [
     {"source": "MG Uhersko-Lviv", "target": "devices", "value": 1},
@@ -16,7 +22,13 @@
     {"source": "devices", "target": "VPP-M", "value": 1},
 	{"source": "VPP-M", "target": "devices", "value": 1},
 	{"source": "Umg", "target": "VPP-M", "value": 1},
+	{"source": "Vmg", "target": "VPP-M", "value": 1},
+	{"source": "Ugg", "target": "VPP-M", "value": 1},
+	{"source": "Vgg", "target": "VPP-M", "value": 1},
+	{"source": "Up", "target": "VPP-M", "value": 1},
 	{"source": "h", "target": "BVC-K", "value": 1},
-	{"source": "J", "target": "BVC-K", "value": 1}
+	{"source": "J", "target": "BVC-K", "value": 1},
+	{"source": "ln", "target": "BVC-K", "value": 1},
+	{"source": "deltaLn", "target": "BVC-K", "value": 1}
   ]
 }
