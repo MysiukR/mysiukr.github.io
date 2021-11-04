@@ -4,12 +4,12 @@
     "parent": "null",
     "children": [
       {
-        "name": "MG Uhersko-Lviv",
+        "name": "location1",
         "parent": "location",
         "children": [
           {
             "name": "devices",
-            "parent": "MG Uhersko-Lviv",
+            "parent": "location1",
             "children": [
               {
                 "name": "BVC-K",
@@ -17,45 +17,15 @@
                 "children": [
                   {
                     "name": "l1",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "l1"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "l1"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   },
                   {
                     "name": "J",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "J"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "J"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   },
                   {
                     "name": "h",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "h"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "h"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   }
                 ]
               },
@@ -69,87 +39,27 @@
                     "children": [
                       {
                         "name": "Lu",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Lu"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Lu"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Umg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Umg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Umg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Vmg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vmg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vmg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Ugg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Ugg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Ugg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Vgg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vgg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vgg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Up",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Up"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Up"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       }
                     ]
                   }
@@ -160,12 +70,12 @@
         ]
       },
       {
-        "name": "WG Lipnyky-Persenkivka",
+        "name": "location2",
         "parent": "location",
         "children": [
           {
             "name": "devices",
-            "parent": "WG Lipnyky-Persenkivka",
+            "parent": "location2",
             "children": [
               {
                 "name": "BVC-K",
@@ -173,59 +83,19 @@
                 "children": [
                   {
                     "name": "ln",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "ln"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "ln"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   },
                   {
                     "name": "J",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "J"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "J"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   },
                   {
                     "name": "h",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "h"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "h"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   },
                   {
                     "name": "deltaLn",
-                    "parent": "BVC-K",
-                    "children": [
-                      {
-                        "name": "value",
-                        "parent": "deltaLn"
-                      },
-                      {
-                        "name": "units",
-                        "parent": "deltaLn"
-                      }
-                    ]
+                    "parent": "BVC-K"
                   }
                 ]
               },
@@ -239,87 +109,28 @@
                     "children": [
                       {
                         "name": "Lu",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Lu"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Lu"
-                          }
+                        "parent": "BVC-K"
                         ]
                       },
                       {
                         "name": "Umg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Umg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Umg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Vmg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vmg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vmg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Ugg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Ugg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Ugg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Vgg",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Vgg"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Vgg"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       },
                       {
                         "name": "Up",
-                        "parent": "BVC-K",
-                        "children": [
-                          {
-                            "name": "value",
-                            "parent": "Up"
-                          },
-                          {
-                            "name": "units",
-                            "parent": "Up"
-                          }
-                        ]
+                        "parent": "BVC-K"
                       }
                     ]
                   }
