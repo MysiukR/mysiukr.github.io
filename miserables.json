@@ -1,7 +1,7 @@
 {
   "nodes": [
-    {"id": "MG Uhersko-Lviv", "group": 1},
-    {"id": "WG Lipnyky-Persenkivka", "group": 1},
+    {"id": "location1", "group": 1},
+    {"id": "location2", "group": 1},
 	{"id": "devices", "group": 2},
     {"id": "BVC-K", "group": 3},
 	{"id": "VPP-M", "group": 3},
@@ -16,8 +16,8 @@
 	{"id": "deltaLn", "group": 4}
   ],
   "links": [
-    {"source": "MG Uhersko-Lviv", "target": "devices", "value": 1},
-    {"source": "WG Lipnyky-Persenkivka", "target": "devices", "value": 1},
+    {"source": "location1", "target": "devices", "value": 1},
+    {"source": "location2", "target": "devices", "value": 1},
     {"source": "devices", "target": "BVC-K", "value": 1},
     {"source": "devices", "target": "VPP-M", "value": 1},
 	{"source": "VPP-M", "target": "devices", "value": 1},
