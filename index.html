@@ -1,9 +1,192 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>Blog Roman Mysiuk</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="main.css"/>
+
+    <title>Fep-11</title>
 </head>
+
 <body>
-<p>My name is Roman. My hobbies are football, piano...</p>
-<img src='https://electronics.lnu.edu.ua/wp-content/uploads/Mysiuk-1-125x150.jpg'>
+
+
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <div class="nav">
+                
+                <a class="nav__link" href="#intro">Феп-11</a>
+                <a class="nav__link" href="#card-container">Студенти</a>
+                <a class="nav__link" href="#person-info">Куратор</a>
+                <a class="nav__link" href="#services">Здібності</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <a href="https://electronics.lnu.edu.ua/en/" target="_blank">
+        <img src="/images/logo.jpg">
+        </a>
+    </div>
+
+</header>
+
+<div class="intro" id="intro">
+    <div class="container">
+        <div class="intro__inner">
+            <h1 class="intro__title">ВАС ВІТАЮТЬ</h1>
+            <h2 class="intro__fep">ФЕП-11</h2>
+        </div>
+    </div>
+</div>
+
+<div class="slider" id="slider">
+    <div class="container">
+        <div class="slider__inner">
+            <div class="slider__item active">
+                <span class="slider__num">01</span> Феп-11
+            </div>
+            <div class="slider__item">
+                <span class="slider__num">02</span> Студенти
+            </div>
+            <div class="slider__item">
+                <span class="slider__num">03</span> Куратор
+            </div>
+            <div class="slider__item">
+                <span class="slider__num">04</span> Здібності
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-container" id="card-container">
+    <div class="swiper-container">
+        <div class="swiper-wrapper" id="cardContainer"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class="person-info" id="person-info">
+    <div class="container">
+        <div class="person-info__inner">
+            <div class="person-info__text">
+                <h1 class="curator"> НАШ НАЙКРАЩИЙ КУРАТОР</h1> 
+                <h2 class="leader">Роман Мисюк</h2>
+                <p class="person-text">“Освітня програма Інженерія програмного забезпечення - це хороша можливість для
+                    студентів
+                    швидко ввійти в ІТ-сферу. Програма дає змогу спробувати широкий спектр можливостей від
+                    програмування вбудованих систем та Інтернету речей до штучного інтелекту, від проєктування
+                    програмних додатків до презентації рішень замовнику. Участь в школах, робота з менторами з
+                    ІТ-компаній, командні проєкти та участь у всіх етапах розробки програмних продуктів
+                    дозволяють на практиці відчути атмосферу та специфіку роботи сповна”.</p>
+            </div>
+            <div class="person-info__image">
+                <img src="/images/roman.png" alt="Person Photo">
+                <img class="crown" src="/images/crown.png" alt="Crown">
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section__header">
+            <h3 class="section__suptitle">Ось наші</h3>
+            <h2 class="section__title">Основні Здібності</h2>
+        </div>
+
+        <div class="services">
+            <div class="services__row">
+                <div class="services__item">
+                    <div class="services__image">
+                        <img class="services__icon" src="/images/python.png" alt="Python Image">
+                    </div>
+                    <div class="services__content">
+                        <div class="services__title">Python</div>
+                        <div class="services__text">Універсальна мова програмування, відома своєю зрозумілістю та легкістю використання.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__item">
+                    <div class="services__image">
+                        <img class="services__icon" src="/images/java.png" alt="Python Image">
+                    </div>
+                    <div class="services__content">
+                        <div class="services__title">Java</div>
+                        <div class="services__text">Потужна об'єктно-орієнтована мова програмування, широко використовується для створення корпоративних програм.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__item">
+                    <div class="services__image">
+                        <img class="services__icon" src="/images/c.png" alt="Python Image">
+                    </div>
+                    <div class="services__content">
+                        <div class="services__title">C</div>
+                        <div class="services__text">Потужна та низькорівнева мова програмування, часто використовується для розробки систем та вимогливих за продуктивністю додатків.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services__line"></div>
+
+            <div class="services__row">
+                <div class="services__row">
+                    <div class="services__item">
+                        <div class="services__image">
+                            <img class="services__icon" src="/images/web.png" alt="Python Image">
+                        </div>
+                        <div class="services__content">
+                            <div class="services__title">WEB DESIGN</div>
+                            <div class="services__text">Передбачає створення візуально привабливих та функціональних веб-сайтів, поєднуючи такі основні елементи, як HTML, CSS та JavaScript.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="services__item">
+                        <div class="services__image">
+                            <img class="services__icon" src="/images/linux.png" alt="Python Image">
+                        </div>
+                        <div class="services__content">
+                            <div class="services__title">Linux</div>
+                            <div class="services__text">Операційна система з відкритим вихідним кодом, широко використовується за своєю стабільністю, безпекою та можливістю налаштувань.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="services__item">
+                        <div class="services__image">
+                            <img class="services__icon" src="/images/git.png" alt="Python Image">
+                        </div>
+                        <div class="services__content">
+                            <div class="services__title">Git</div>
+                            <div class="services__text">Розподілена система контролю версій, яка полегшує співпрацю між розробниками, ефективно керуючи змінами у вихідному коді.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="copyright" id="copyright">
+    <div class="container">
+        <p>© 2023 Fep-11. All rights reserved.</p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
 </body>
+
 </html>
