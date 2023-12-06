@@ -1,7 +1,7 @@
 document.documentElement.style.setProperty('--swiper-pagination-bottom', '-50px');
 document.addEventListener('DOMContentLoaded', function () {
     const cardData = [
-        {title: 'Бабухівський Віталій', subtitle: '17', content: 'Я дуже люблю програмування. Зараз мені подобається вивчати  HTML, CSS  та JavaScript. Я завжди вражаюся магією, яку можна створити, працюючи з цими технологіями. Мій шлях у програмуванні — це постійне вдосконалення та вивчення нових інструментів.', imageSrc: '/images/people/pic1.jpg'},
+        {title: 'Бабухівський Віталій', subtitle: '17', content: 'Я дуже люблю програмування. Зараз мені подобається вивчати  HTML, CSS  та JavaScript. Я завжди вражаюся магією, яку можна створити, працюючи з цими технологіями. Мій шлях у програмуванні — це постійне вдосконалення та вивчення нових інструментів.', imageSrc: '/images/people/pic1.JPG'},
         {title: 'Болюбаш Назар', subtitle: '17', content: 'Граю бравл старс', imageSrc: '/images/people/pic2.jpg'},
         {title: 'Войченко Ігор', subtitle: '17', content: '', imageSrc: '/images/people/pic3.jpg'},
         {title: 'Горовий Микита', subtitle: '17', content: 'Дотєр.', imageSrc: '/images/people/pic4.jpg'},
