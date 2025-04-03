@@ -1,192 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основи інженерії ПЗ</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            user-select: none;
+            flex-direction: column;
+        }
+        header {
+            background: white;
+            color: rgb(134,75,42);
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align logo to the left */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 40px;  /* Adjust the logo size */
+            margin-right: 15px; /* Space between the logo and the header title */
+        }
+        header h1 {
+            margin: 0; /* Remove margin from header title to align it with the logo */
+            font-size: 18px;
+        }
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="main.css"/>
+        .sidebar {
+            width: 300px;
+            background: #fff;
+            padding: 15px;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
 
-    <title>Fep-11</title>
+        .sidebar h3 {
+            cursor: pointer;
+            padding: 10px;
+            background: rgb(134,75,42);
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            display: none;
+        }
+        .sidebar ul li {
+            padding-left: 15px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: rgb(134,75,42);
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #f0f0f0;
+        }
+
+        main {
+            margin-left: 320px;
+            padding: 20px;
+            padding-top: 80px;
+            flex-grow: 1;
+            background-color: #fff;
+            transition: margin-left 0.3s;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background: rgb(134,75,42);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap; /* Allow text to wrap */
+        }
+
+        #text-input {
+            width: 30%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+/* General styles for mobile devices */
+@media (max-width: 1024px) {
+    header {
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 98%; /* Sidebar takes full width for smaller screens */
+        top: 60px;
+        position: static; /* Sidebar will no longer be fixed to the left, it will move below the header */
+        margin-top: 80px; /* Add margin-top to move it below the header */
+        box-shadow: none; /* Remove sidebar shadow for a cleaner look */
+    }
+
+    main {
+        margin-left: 0;
+        padding-top: 120px; /* Increase the top padding to avoid the header */
+    }
+
+    #text-input {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+        font-size: 16px;  /* Adjust the font size of the header text for mobile */
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .sidebar {
+        width: 95%;
+        position: static;
+        padding: 10px;
+        margin-top: 60px; /* Ensure sidebar starts below the header */
+    }
+
+    main {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+
+    .sidebar h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    #text-input {
+        width: 80%;
+    }
+}
+
+
+    </style>
+    <script>
+        document.addEventListener('copy', (event) => event.preventDefault());
+        document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+        function toggleSubmenu(id) {
+           var submenu = document.getElementById(id);
+    
+           // Toggle the submenu visibility
+           if (submenu.style.display === 'none' || submenu.style.display === '') {
+              submenu.style.display = 'block';
+            } else {
+              submenu.style.display = 'none';
+            }
+        }
+
+        // Function to handle button click and display the text in the console output
+        function runCode() {
+            var inputText = document.getElementById("text-input").value;
+            var outputElement = document.getElementById("console-output");
+
+            // Check if the input text is a valid print statement
+            if (inputText.startsWith('print("') && inputText.endsWith('")')) {
+                var content = inputText.slice(7, -2); // Remove 'print(' and ')'
+                outputElement.textContent = `Console Output:\n${content}`;
+            } else {
+                outputElement.textContent = `Console Output:\nInvalid Python syntax. Please use the format: print("text")`;
+            }
+        }
+    </script>
 </head>
-
 <body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <h1>Основи інженерії програмного забезпечення</h1>
+    </header>
+    
+    <nav class="sidebar">
+      <h3 onclick="toggleSubmenu('menu1')">1. Про сучасний стан індустрії розробки ПЗ</h3>
+      <ul id="menu1" style="display: none;">
+          <li><a href="#section1.1">1.1 Поява терміну інженерія програмного забезпечення</a></li>
+          <li><a href="#section1.2">1.2 Технічна революція</a></li>
+          <li><a href="#section1.3">1.3 Етика програмної інженерії</a></li>
+          <li><a href="#section1.4">1.4 Типи компаній</a></li>
+          <li><a href="#section1.5">1.5 Огляд існуючих ролей, напрямків та професій в індустрії</a></li>
+          <li><a href="#section1.6">1.6 Типові обов’язки інженерів програмного забезпечення</a></li>
+      </ul>
 
+      <h3 onclick="toggleSubmenu('menu2')">2. Представлення себе як спеціаліста</h3>
+      <ul id="menu2" style="display: none;">
+          <li><a href="#section2.1">2.1 М’які навички – важлива складова майбутнього</a></li>
+          <li><a href="#section2.2">2.2 Створення резюме</a></li>
+          <li><a href="#section2.3">2.3 Помилки та труднощі</a></li>
+          <li><a href="#section2.4">2.4 Ділове спілкування</a></li>
+          <li><a href="#section2.5">2.5 Проходження співбесіди</a></li>
+          <li><a href="#section2.6">2.6 Керуванням часом</a></li>
+          <li><a href="#section2.7">2.7 Презентація себе чи проєкту</a></li>
+      </ul>
 
-<header class="header">
-    <div class="container">
-        <div class="header__inner">
-            <div class="nav">
-                
-                <a class="nav__link" href="#intro">Феп-11</a>
-                <a class="nav__link" href="#card-container">Студенти</a>
-                <a class="nav__link" href="#person-info">Куратор</a>
-                <a class="nav__link" href="#services">Здібності</a>
+      <h3 onclick="toggleSubmenu('menu3')">3. Життєвий цикл розробки ПЗ</h3>
+      <ul id="menu3" style="display: none;">
+          <li><a href="#section3.1">3.1 Каскадна модель</a></li>
+          <li><a href="#section3.2">3.2 V-подібна модель</a></li>
+          <li><a href="#section3.3">3.3 Спіральна модель</a></li>
+          <li><a href="#section3.4">3.4 Еволюційна модель</a></li>
+          <li><a href="#section3.5">3.5 Інкрементна модель</a></li>
+          <li><a href="#section3.6">3.6 Гнучка розробка програмного забезпечення Agile</a></li>
+          <li><a href="#section3.7">3.7 Методологія Scrum</a></li>
+          <li><a href="#section3.8">3.8 Kanban - візуальний метод управління процесами</a></li>
+          <li><a href="#section3.9">3.9 Бізнес-ідея стартап проекту та створення життєздатного продукту</a></li>
+          <li><a href="#section3.10">3.10 Ризики під час реалізації програмного забезпечення</a></li>
+          <li><a href="#section3.11">3.11 Оцінювання затрат часу на етапі проектування програмного продукту</a></li>
+      </ul>
 
-            </div>
-        </div>
-    </div>
+      <h3 onclick="toggleSubmenu('menu4')">4. Робота в команді</h3>
+      <ul id="menu4" style="display: none;">
+          <li><a href="#section4.1">4.1 Комунікація та вирішення конфліктів</a></li>
+          <li><a href="#section4.2">4.2 Поняття систем контролю версій</a></li>
+          <li><a href="#section4.3">4.3 Процес перегляду коду та гілкова стратегія</a></li>
+          <li><a href="#section4.4">4.4 Централізована та децентралізована система контролю версій</a></li>
+      </ul>
 
-    <div class="logo">
-        <a href="https://electronics.lnu.edu.ua/en/" target="_blank">
-        <img src="/images/logo.jpg">
-        </a>
-    </div>
+      <h3 onclick="toggleSubmenu('menu5')">5. Проектування програмного забезпечення</h3>
+      <ul id="menu5" style="display: none;">
+          <li><a href="#section5.1">5.1 Вимоги до програмних систем</a></li>
+          <li><a href="#section5.2">5.2 Загальні аспекти UI/UX веб дизайну</a></li>
+          <li><a href="#section5.3">5.3 Поняття UML</a></li>
+      </ul>
 
-</header>
+      <h3 onclick="toggleSubmenu('menu6')">6. Розробка програмного забезпечення</h3>
+      <ul id="menu6" style="display: none;">
+          <li><a href="#section6.1">6.1 Що таке програмування?</a></li>
+          <li><a href="#section6.2">6.2 Парадигми програмування</a></li>
+          <li><a href="#section6.3">6.3 Псевдокод</a></li>
+          <li><a href="#section6.4">6.4 Популярні мови програмування</a></li>
+          <li><a href="#section6.5">6.5 Порівняння синтаксису</a></li>
+          <li><a href="#section6.6">6.6 Мова програмування Python</a></li>
+          <li><a href="#section6.7">6.7 Стандарти оформлення коду</a></li>
+          <li><a href="#section6.8">6.8 Основні оператори Python</a></li>
+          <li><a href="#section6.9">6.9 Оператори вводу та виводу інформації</a></li>
+          <li><a href="#section6.10">6.10 Оператори галуження та цикли</a></li>
+          <li><a href="#section6.11">6.11 Робота з файлами CSV, JSON, TXT</a></li>
+          <li><a href="#section6.12">6.12 Відлагодження (debugging) програми</a></li>
+          <li><a href="#section6.13">6.13 Обробка помилок</a></li>
+          <li><a href="#section6.14">6.14 Поняття програмних бібліотек</a></li>
+          <li><a href="#section6.15">6.15 Поняття шаблонів проектування</a></li>
+      </ul>
 
-<div class="intro" id="intro">
-    <div class="container">
-        <div class="intro__inner">
-            <h1 class="intro__title">ВАС ВІТАЮТЬ</h1>
-            <h2 class="intro__fep">ФЕП-11</h2>
-        </div>
-    </div>
-</div>
+      <h3 onclick="toggleSubmenu('menu7')">7. Веб розробка</h3>
+      <ul id="menu7" style="display: none;">
+          <li><a href="#section7.1">7.1 Найпростіша сторінка з використанням HTML, CSS, JS</a></li>
+          <li><a href="#section7.2">7.2 Режим розробника у браузері</a></li>
+          <li><a href="#section7.3">7.3 Бібліотеки Bootstrap та JQuery</a></li>
+          <li><a href="#section7.4">7.4 Збереження даних у браузері</a></li>
+          <li><a href="#section7.5">7.5 Адаптивний дизайн</a></li>
+          <li><a href="#section7.6">7.6 Обробка подій. Регулярні вирази</a></li>
+          <li><a href="#section7.7">7.7 Архітектура програмного забезпечення</a></li>
+          <li><a href="#section7.8">7.8 Клієнт-серверна архітектура</a></li>
+          <li><a href="#section7.9">7.9 Бібліотека Flask</a></li>
+          <li><a href="#section7.10">7.10 Взаємодія з сервером. Асинхронні запити</a></li>
+      </ul>
 
-<div class="slider" id="slider">
-    <div class="container">
-        <div class="slider__inner">
-            <div class="slider__item active">
-                <span class="slider__num">01</span> Феп-11
-            </div>
-            <div class="slider__item">
-                <span class="slider__num">02</span> Студенти
-            </div>
-            <div class="slider__item">
-                <span class="slider__num">03</span> Куратор
-            </div>
-            <div class="slider__item">
-                <span class="slider__num">04</span> Здібності
-            </div>
-        </div>
-    </div>
-</div>
+      <h3 onclick="toggleSubmenu('menu8')">8. Тестування та керування якістю</h3>
+      <ul id="menu8" style="display: none;">
+          <li><a href="#section8.1">8.1 Типи тестування</a></li>
+          <li><a href="#section8.2">8.2 Дефект</a></li>
+          <li><a href="#section8.3">8.3 Тестова документація</a></li>
+          <li><a href="#section8.4">8.4 Моделі та метрики якості програмних систем</a></li>
+          <li><a href="#section8.5">8.5 Модульне тестування</a></li>
+          <li><a href="#section8.6">8.6 Автоматизоване тестування</a></li>
+          <li><a href="#section8.7">8.7 Процеси розгортання збірки в CI/CD процесах</a></li>
+      </ul>
 
-<div class="card-container" id="card-container">
-    <div class="swiper-container">
-        <div class="swiper-wrapper" id="cardContainer"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-</div>
+      <h3 onclick="toggleSubmenu('menu9')">9. Підтримка програмного забезпечення</h3>
+      <ul id="menu9" style="display: none;">
+          <li><a href="#section9.1">9.1 Повторне проєктування</a></li>
+          <li><a href="#section9.2">9.2 Переробка та оптимізація коду</a></li>
+      </ul>
 
-<div class="person-info" id="person-info">
-    <div class="container">
-        <div class="person-info__inner">
-            <div class="person-info__text">
-                <h1 class="curator"> НАШ НАЙКРАЩИЙ КУРАТОР</h1> 
-                <h2 class="leader">Роман Мисюк</h2>
-                <p class="person-text">“Освітня програма Інженерія програмного забезпечення - це хороша можливість для
-                    студентів
-                    швидко ввійти в ІТ-сферу. Програма дає змогу спробувати широкий спектр можливостей від
-                    програмування вбудованих систем та Інтернету речей до штучного інтелекту, від проєктування
-                    програмних додатків до презентації рішень замовнику. Участь в школах, робота з менторами з
-                    ІТ-компаній, командні проєкти та участь у всіх етапах розробки програмних продуктів
-                    дозволяють на практиці відчути атмосферу та специфіку роботи сповна”.</p>
-            </div>
-            <div class="person-info__image">
-                <img src="/images/roman.png" alt="Person Photo">
-                <img class="crown" src="/images/crown.png" alt="Crown">
-            </div>
-        </div>
-    </div>
-</div>
+      <h3 onclick="toggleSubmenu('menu10')">10. Додатки</h3>
+      <ul id="menu10" style="display: none;">
+          <li><a href="#sectionA">Додаток А. CRUD-операції з HTTP-методами</a></li>
+          <li><a href="#sectionB">Додаток Б. HTTP-коди та їх призначення</a></li>
+          <li><a href="#sectionC">Додаток В. Порівняння REST і SOAP</a></li>
+          <li><a href="#sectionD">Додаток Г. Приклад веб-сервісу з CRUD операціями</a></li>
+      </ul>
+      <h3 onclick="toggleSubmenu('menu11')">11. Відомості про авторів</h3>
+    </nav>
 
-<section class="section" id="services">
-    <div class="container">
-        <div class="section__header">
-            <h3 class="section__suptitle">Ось наші</h3>
-            <h2 class="section__title">Основні Здібності</h2>
-        </div>
-
-        <div class="services">
-            <div class="services__row">
-                <div class="services__item">
-                    <div class="services__image">
-                        <img class="services__icon" src="/images/Python.png" alt="Python Image">
-                    </div>
-                    <div class="services__content">
-                        <div class="services__title">Python</div>
-                        <div class="services__text">Універсальна мова програмування, відома своєю зрозумілістю та легкістю використання.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="services__item">
-                    <div class="services__image">
-                        <img class="services__icon" src="/images/java.png" alt="Python Image">
-                    </div>
-                    <div class="services__content">
-                        <div class="services__title">Java</div>
-                        <div class="services__text">Потужна об'єктно-орієнтована мова програмування, широко використовується для створення корпоративних програм.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="services__item">
-                    <div class="services__image">
-                        <img class="services__icon" src="/images/c.png" alt="Python Image">
-                    </div>
-                    <div class="services__content">
-                        <div class="services__title">C</div>
-                        <div class="services__text">Потужна та низькорівнева мова програмування, часто використовується для розробки систем та вимогливих за продуктивністю додатків.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services__line"></div>
-
-            <div class="services__row">
-                <div class="services__row">
-                    <div class="services__item">
-                        <div class="services__image">
-                            <img class="services__icon" src="/images/Web.png" alt="Python Image">
-                        </div>
-                        <div class="services__content">
-                            <div class="services__title">WEB DESIGN</div>
-                            <div class="services__text">Передбачає створення візуально привабливих та функціональних веб-сайтів, поєднуючи такі основні елементи, як HTML, CSS та JavaScript.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="services__item">
-                        <div class="services__image">
-                            <img class="services__icon" src="/images/linux.png" alt="Python Image">
-                        </div>
-                        <div class="services__content">
-                            <div class="services__title">Linux</div>
-                            <div class="services__text">Операційна система з відкритим вихідним кодом, широко використовується за своєю стабільністю, безпекою та можливістю налаштувань.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="services__item">
-                        <div class="services__image">
-                            <img class="services__icon" src="/images/git.png" alt="Python Image">
-                        </div>
-                        <div class="services__content">
-                            <div class="services__title">Git</div>
-                            <div class="services__text">Розподілена система контролю версій, яка полегшує співпрацю між розробниками, ефективно керуючи змінами у вихідному коді.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<div class="copyright" id="copyright">
-    <div class="container">
-        <p>© 2023 Fep-11. All rights reserved.</p>
-    </div>
-</div>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="main.js"></script>
+    
+    <main>
+        <section id="console-runner">
+            <h2>Введіть своє імʼя для виводу інформації у Python</h2>
+            <input type="text" id="text-input" placeholder='Введіть Python код, наприклад: print("text")'>
+            <button onclick="runCode()">Запустити</button>
+            <pre id="console-output">Console Output: </pre>
+        </section>
+    </main>
 </body>
-
 </html>
