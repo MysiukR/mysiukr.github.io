@@ -1,0 +1,126 @@
+
+ .git-simulator {
+    font-family: monospace;
+    color: rgb(134,75,42);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.git-simulator .terminal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.git-simulator .terminal {
+    background: rgba(134,75,42,0.3);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.git-simulator .terminal-output {
+    min-height: 200px;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.git-simulator .input-line {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.git-simulator .terminal-input {
+    flex-grow: 1;
+    padding: 5px;
+    background: rgba(134,75,42,0.3);
+    color: rgb(134,75,42);
+    border: 1px solid #444;
+    border-radius: 3px;
+    outline: none;
+    font-size: 16px;
+}
+
+.git-simulator .terminal-button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.git-simulator .terminal-button:hover {
+    background: #666;
+}
+
+.git-simulator .git-command-table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 90%;
+    text-align: left;
+}
+
+.git-simulator .git-command-table th, 
+.git-simulator .git-command-table td {
+    border: 1px solid rgb(134,75,42);
+    padding: 8px;
+}
+
+.git-simulator .git-command-table th {
+    background: rgba(134,75,42,0.3);
+}
+
+.git-graph {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 90%;
+}
+svg {
+    background: rgba(134,75,42,0.3);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .git-simulator .git-command-table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .git-command-table th, 
+    .git-command-table td {
+        padding: 6px;
+    }
+}
+
+/* Адаптація для дуже малих екранів (до 480px) */
+@media screen and (max-width: 480px) {
+    .git-simulator .git-command-table {
+        font-size: 12px;
+    }
+
+    .git-command-table th, 
+    .git-command-table td {
+        padding: 4px;
+    }
+
+    /* Робимо таблицю скролабельною */
+    .git-simulator {
+        overflow-x: auto;
+    }
+}
