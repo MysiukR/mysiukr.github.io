@@ -228,6 +228,42 @@ footer a:hover {
             font-size: 14px;
             margin-top: 10px;
         }
+        .board {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+    }
+    .column {
+      background: rgba(134,75,42,0.3);
+      flex: 1;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 250px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+    }
+    .column h2 {
+      text-align: center;
+    }
+    .task {
+      background: rgb(134,75,42);
+      color: white;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: grab;
+    }
+    .add-task {
+        width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  box-sizing: border-box; 
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+    }
 
 /* General styles for mobile devices */
 @media (max-width: 1024px) {
@@ -338,6 +374,15 @@ footer a {
 footer a:hover {
     text-decoration: underline; /* Підкреслення при наведенні */
 }
+
+    .board {
+        flex-direction: column;
+        align-items: center;
+      }
+      .column {
+        width: 90%;
+        min-width: unset;
+      }
 
 }
 
@@ -686,6 +731,21 @@ footer a:hover {
         
         <section id="section3.8">
             <h3>3.8 Kanban - вiзуальний метод управлiння процесами</h3>
+            <h1>Kanban дошка для програми збереження </h1>
+            <div class="board" id="board">
+            <div class="column" data-status="todo">
+            <h2>Заплановано</h2>
+            <div class="task" draggable="true">Додати можливість вводу та виводу даних про імʼя та вік</div>
+            <div class="task" draggable="true">Перевірити у програмі ввід невірних даних</div>
+            <input type="text" class="add-task" placeholder="Додати завдання">
+            </div>
+            <div class="column" data-status="inprogress">
+            <h2>В процесі</h2>
+            </div>
+            <div class="column" data-status="done">
+            <h2>Виконано</h2>
+            </div>
+            </div>
         </section>
         
         <section id="section3.9">
