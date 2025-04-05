@@ -264,6 +264,7 @@ footer a:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
     }
+    
 
 /* General styles for mobile devices */
 @media (max-width: 1024px) {
@@ -312,7 +313,9 @@ footer a {
 footer a:hover {
     text-decoration: underline; /* Підкреслення при наведенні */
 }
-
+.board {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -375,14 +378,9 @@ footer a:hover {
     text-decoration: underline; /* Підкреслення при наведенні */
 }
 
-    .board {
-        flex-direction: column;
-        align-items: center;
-      }
-      .column {
-        width: 90%;
-        min-width: unset;
-      }
+.board {
+    display: none;
+  }
 
 }
 
@@ -1152,5 +1150,6 @@ footer a:hover {
     </main>
     <script src="gitrun.js"></script>
     <script src="softskills.js"></script>
+    <script src="kanban.js"></script>
 </body>
 </html>
