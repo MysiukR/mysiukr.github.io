@@ -1,0 +1,139 @@
+       .container {
+            width: 80%;
+            max-width: 900px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .input-field {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .input-field:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        .cv-template {
+            width: 21cm;
+            height: 29.7cm;
+            background-color: #fff;
+            padding: 20px;
+	    margin-top: 50px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .cv-center {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            width: 100%;
+            height: 10%;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .cv-content {
+            /* Тепер видаляємо flexbox, і будемо використовувати float */
+            overflow: hidden; /* Це очистить обтікання */
+        }
+
+        .cv-left {
+            width: 23%; /* Обидва блоки займають по 45% ширини */
+        padding: 20px;
+        border-radius: 8px;
+            background-color: rgba(134,75,42,0.3); /* коричневий колір для лівої частини */
+            color: white; /* білий текст */
+            float:left;
+        }
+
+        .cv-right {
+            width: 63%; /* Обидва блоки займають по 45% ширини */
+        
+        padding: 20px;
+        border-radius: 8px;
+            background-color: #f9f9f9; /* Фон правої частини */
+            float:right;
+        }
+
+        .cv-footer {
+            clear: both; /* Це дозволяє забрати плаваючі елементи */
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+            color: #777;
+        }
+
+        .stars {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            width: 20px;
+            height: 20px;
+            background-color: #ddd;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            cursor: pointer;
+        }
+
+        .star.selected {
+            background-color: #f39c12;
+        }
+
+#cvName, #cvProfession {
+color: rgb(134,75,42);
+}
+
+        /* Мобільна адаптація */
+        @media (max-width: 768px) {
+            .cv-template {
+                width: 100%;
+                height: auto;
+                padding: 40px;
+            }
+
+            .cv-center {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .cv-content {
+                display: block; /* Перехід на вертикальний лінійний блок на мобільних */
+                text-align: center;
+            }
+
+            .cv-left, .cv-right {
+                width: 85%; /* На мобільних пристроях блоки займають всю ширину */
+                float: none; /* Знімаємо плаваючі блоки */
+                margin-bottom: 20px; /* Додаємо відступи */
+            }
+        }
