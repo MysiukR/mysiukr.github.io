@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Основи інженерії ПЗ</title>
     <link rel="stylesheet" href="gitstyle.css">
+    <link rel="stylesheet" href="cv_review.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         body {
@@ -429,12 +430,11 @@ footer a:hover {
                 outputElement.textContent = `Console Output:\nInvalid Python syntax. Please use the format: print("text")`;
             }
         }
-
     </script>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
+        <img src="logo.png" alt="Logo" id="logo" style="cursor: pointer;">
         <h1>Основи інженерії програмного забезпечення</h1>
     </header>
     
@@ -673,6 +673,96 @@ footer a:hover {
         
         <section id="section2.2">
             <h3>2.2 Створення резюме</h3>
+            <div class="container">
+                <!-- Форма введення даних -->
+                <h1>Створіть своє резюме</h1>
+                <form id="cvForm">
+                    <div>
+                        <label class="section-title" for="name">Ім'я</label>
+                        <input type="text" id="name" class="input-field" placeholder="Введіть ваше ім'я" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="profession">Професія</label>
+                        <input type="text" id="profession" class="input-field" placeholder="Введіть вашу професію" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="phone">Телефон</label>
+                        <input type="text" id="phone" class="input-field" placeholder="Введіть ваш номер телефону" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="email">Email</label>
+                        <input type="email" id="email" class="input-field" placeholder="Введіть ваш email" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="university">Університет</label>
+                        <input type="text" id="university" class="input-field" placeholder="Введіть ваш університет" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="degree">Спеціальність</label>
+                        <input type="text" id="degree" class="input-field" placeholder="Введіть вашу спеціальність" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="previousJob">Попереднє місце роботи</label>
+                        <input type="text" id="previousJob" class="input-field" placeholder="Введіть попереднє місце роботи" required>
+                    </div>
+                    <div>
+                        <label class="section-title" for="skills">Технічні навички</label>
+                        <div id="skills" class="stars">
+                            <div class="star" data-value="1"></div>
+                            <div class="star" data-value="2"></div>
+                            <div class="star" data-value="3"></div>
+                            <div class="star" data-value="4"></div>
+                            <div class="star" data-value="5"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="section-title" for="softSkills">М'які навички</label>
+                        <div id="softSkills" class="stars">
+                            <div class="star" data-value="1"></div>
+                            <div class="star" data-value="2"></div>
+                            <div class="star" data-value="3"></div>
+                            <div class="star" data-value="4"></div>
+                            <div class="star" data-value="5"></div>
+                        </div>
+                    </div>
+        
+                    <button type="button" class="submit-btn" onclick="generateCV()">Подати резюме</button>
+                </form>
+        
+                <center>
+                <!-- Шаблон Резюме -->
+                <div class="cv-template" id="cvTemplate">
+                    <div class="cv-center">
+                        <p> <span id="cvName"></span></p>
+                        <p> <span id="cvProfession"></span></p>
+                    </div>         
+                    <div class="cv-content">
+                        <div class="cv-left">
+                            <h2>Особисті дані</h2>
+                            <p><strong>Телефон:</strong> <span id="cvPhone"></span></p>
+                            <p><strong>Email:</strong> <span id="cvEmail"></span></p>
+        
+                            <h2>Навички</h2>
+                            <p><strong>Технічні навички:</strong> <span id="cvSkills"></span></p>
+                            <p><strong>М'які навички:</strong> <span id="cvSoftSkills"></span></p>               
+                        </div>
+        
+                        <div class="cv-right">
+                            <h2>Освіта</h2>
+                            <p><strong>Університет:</strong> <span id="cvUniversity"></span></p>
+                            <p><strong>Спеціальність:</strong> <span id="cvDegree"></span></p>
+        
+                            <h2>Досвід роботи</h2>
+                            <p><strong>Попереднє місце роботи:</strong> <span id="cvPreviousJob"></span></p>               
+                        </div>
+                    </div>
+        
+                    <div class="cv-footer">
+                        <p>Дякую за вашу увагу!</p>
+                    </div>
+                </div>
+            </center>
+            </div>
         </section>
         
         <section id="section2.3">
