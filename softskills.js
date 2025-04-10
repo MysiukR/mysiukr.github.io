@@ -67,3 +67,56 @@
                 alertBox.style.color = "green";
             }
         }
+
+        //scroll on logo
+        document.getElementById("logo").addEventListener("click", function () {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          });
+
+                // Збираємо вибір навичок зірочками
+        document.querySelectorAll('.stars .star').forEach(star => {
+            star.addEventListener('click', function() {
+                let value = this.getAttribute('data-value');
+                this.parentNode.querySelectorAll('.star').forEach(star => {
+                    star.classList.remove('selected');
+                });
+                for (let i = 0; i < value; i++) {
+                    this.parentNode.children[i].classList.add('selected');
+                }
+            });
+        });
+
+        // Функція для генерації резюме
+        function generateCV() {
+            // Отримуємо значення введених даних
+            const name = document.getElementById('name').value;
+            const profession = document.getElementById('profession').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const university = document.getElementById('university').value;
+            const degree = document.getElementById('degree').value;
+            const previousJob = document.getElementById('previousJob').value;
+
+            const technicalSkills = document.querySelectorAll('#skills .star.selected').length;
+            const softSkills = document.querySelectorAll('#softSkills .star.selected').length;
+
+            // Відображаємо ці дані в шаблоні резюме
+            document.getElementById('cvName').textContent = name;
+            document.getElementById('cvProfession').textContent = profession;
+            document.getElementById('cvPhone').textContent = phone;
+            document.getElementById('cvEmail').textContent = email;
+            document.getElementById('cvUniversity').textContent = university;
+            document.getElementById('cvDegree').textContent = degree;
+            document.getElementById('cvPreviousJob').textContent = previousJob;
+            document.getElementById('cvSkills').textContent = `Технічні навички: ${technicalSkills} з 5`;
+            document.getElementById('cvSoftSkills').textContent = `М'які навички: ${softSkills} з 5`;
+
+            // Приховуємо форму і показуємо шаблон резюме
+            //document.getElementById('cvTemplate').style.display = 'flex';
+            //document.getElementById('cvForm').style.display = 'none';
+        }
+
+      
