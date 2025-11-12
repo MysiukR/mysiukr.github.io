@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Інтерактивна мапа курсів — HTML + D3</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.6/d3.min.js" integrity="sha512-qb7r2d3m3+7f1uS6z0E9c0p6q3h+3G1yqg8s7V7YxkDq3ZqX5Gf7K9yq0z2wFJ1o9zQ0X2t1p0s9v8t3h6s5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    :root{--bg:#f7f9fb;--card:#fff;--muted:#6b7280;--accent:#2563eb}
+    body{font-family:Inter, Roboto, Arial, sans-serif;background:var(--bg);margin:0;padding:18px;color:#111}
+    .app{max-width:1200px;margin:0 auto}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+    h1{font-size:20px;margin:0}
+
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    .controls > *{background:var(--card);padding:8px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+
+    .controls label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+    input[type=text]{padding:8px;border:1px solid #e5e7eb;border-radius:6px;width:220px}
+    select, button{padding:8px;border-radius:6px;border:1px solid #e5e7eb;background:white}
+
+    .sem-list{display:flex;gap:6px;flex-wrap:wrap}
+    .sem-list button{padding:6px 8px;border-radius:6px;border:1px solid #e5e7eb;background:white}
+    .sem-list button.active{background:var(--accent);color:white;border-color:var(--accent)}
+
+    #graph-wrap{height:70vh;border-radius:10px;background:var(--card);overflow:hidden;border:1px solid #e6eef8}
+    svg{width:100%;height:100%}
+
+    .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .legend .item{display:flex;align-items:center;gap:6px;font-size:13px}
+    .dot{width:14px;height:14px;border-radius:3px;border:1px solid #444}
+
+    .side-panel{position:fixed;right:20px;top:80px;width:260px;background:var(--card);padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(16,24,40,0.08)}
+    .side-panel h3{margin:0 0 8px 0}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Інтерактивна мапа курсів — HTML + D3</h1>
+      <div style="color:var(--muted);font-size:13px">Візуалізація зв'язків курсів по семестрах</div>
+    </header>
+
+    <div class="controls">
+      <div>
+        <label>Пошук (код або назва)</label>
+        <input id="search" type="text" placeholder="Наприклад: CS101 або Fin" />
+      </div>
+
+      <div>
+        <label>Макет</label>
+        <select id="layout">
+          <option value="force">Силовий (force)</option>
+          <option value="radial">Радіальний (by semester)</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Семестри (показати/сховати)</label>
+        <div class="sem-list" id="semList"></div>
+      </div>
+
+      <div>
+        <label>Дії</label>
+        <div style="display:flex;gap:6px">
+          <button id="resetBtn">Скинути</button>
+          <button id="exportBtn">Експорт PNG</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="graph-wrap">
+      <svg id="chart"></svg>
+    </div>
+
+    <div class="legend" id="legend"></div>
+
+    <div class="side-panel hidden" id="infoPanel">
+      <h3 id="infoTitle">Course</h3>
+      <div id="infoBody"></div>
+      <div style="margin-top:8px;text-align:right">
+        <button id="closeInfo">Закрити</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  // ================== Sample curriculum data (adapt to your own) ==================
+  const courses = [
+    { id: 'MATH101', name: 'Mathematics I', sem: 1, credits: 6 },
+    { id: 'CS101', name: 'Programming I', sem: 1, credits: 6 },
+    { id: 'ECON101', name: 'Economics I', sem: 1, credits: 4 },
+
+    { id: 'MATH102', name: 'Mathematics II', sem: 2, credits: 6, prereq: ['MATH101'] },
+    { id: 'CS102', name: 'Programming II', sem: 2, credits: 6, prereq: ['CS101', 'MATH101'] },
+    { id: 'ACC201', name: 'Accounting Basics', sem: 2, credits: 4 },
+
+    { id: 'FIN201', name: 'Foundations of Finance', sem: 3, credits: 6, prereq: ['ECON101'] },
+    { id: 'DB201', name: 'Databases', sem: 3, credits: 5, prereq: ['CS102'] },
+
+    { id: 'ML301', name: 'Machine Learning', sem: 4, credits: 6, prereq: ['MATH102', 'CS102'] },
+    { id: 'DS301', name: 'Data Science for Finance', sem: 4, credits: 6, prereq: ['DB201', 'FIN201'] },
+
+    { id: 'FIN401', name: 'Risk Modelling', sem: 5, credits: 6, prereq: ['ML301', 'FIN201'] },
+    { id: 'UX401', name: 'Fintech UX', sem: 5, credits: 4, prereq: ['CS102'] },
+
+    { id: 'PROJECT', name: 'Capstone Project', sem: 7, credits: 12, prereq: ['FIN401','DS301'] },
+  ];
+
+  // Build nodes and links
+  const nodes = courses.map(c => ({ id: c.id, name: c.name, sem: c.sem, credits: c.credits }));
+  const links = [];
+  courses.forEach(c => {(c.prereq || []).forEach(p => links.push({ source: p, target: c.id }));});
+
+  // SVG setup
+  const svg = d3.select('#chart');
+  const width = document.getElementById('graph-wrap').clientWidth;
+  const height = document.getElementById('graph-wrap').clientHeight;
+  svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+  const g = svg.append('g'); // main group
+
+  // defs for arrows
+  const defs = svg.append('defs');
+  defs.append('marker')
+    .attr('id','arrow')
+    .attr('viewBox','0 -5 10 10')
+    .attr('refX',22)
+    .attr('refY',0)
+    .attr('markerWidth',6)
+    .attr('markerHeight',6)
+    .attr('orient','auto')
+    .append('path').attr('d','M0,-5L10,0L0,5').attr('fill','#777');
+
+  // color palette per semester
+  const sems = Array.from(new Set(nodes.map(n=>n.sem))).sort((a,b)=>a-b);
+  const color = d3.scaleOrdinal().domain(sems).range(['#cfe8ff','#bfe6c9','#fff2b5','#ffd7b5','#ffb5c5','#e6d5ff','#d3ffd6']);
+
+  // render legend and sem buttons
+  const legend = d3.select('#legend');
+  sems.forEach(s => {
+    const item = legend.append('div').attr('class','item');
+    item.append('div').attr('class','dot').style('background', color(s));
+    item.append('div').text('S' + s);
+  });
+
+  // sem filter controls
+  const semList = d3.select('#semList');
+  const visibleSems = new Set(sems);
+  sems.forEach(s => {
+    const btn = semList.append('button')
+      .attr('type','button')
+      .classed('active', true)
+      .text('S' + s)
+      .on('click', () => {
+        if(visibleSems.has(s)){ visibleSems.delete(s); btn.classed('active', false); } else { visibleSems.add(s); btn.classed('active', true); }
+        updateVisibility();
+      });
+  });
+
+  // containers for links and nodes
+  const linkGroup = g.append('g').attr('class','links');
+  const nodeGroup = g.append('g').attr('class','nodes');
+
+  // create simulation
+  let simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d=>d.id).distance(120).strength(1))
+    .force('charge', d3.forceManyBody().strength(-600))
+    .force('center', d3.forceCenter(width/2, height/2))
+    .force('collide', d3.forceCollide().radius(d=>radiusFor(d)+8));
+
+  // helper for node size
+  function radiusFor(d){ return 12 + (d.credits? d.credits*0.6 : 0); }
+
+  // draw links
+  const link = linkGroup.selectAll('path').data(links).enter().append('path')
+    .attr('class','link')
+    .attr('stroke','#777')
+    .attr('fill','none')
+    .attr('stroke-width',1.6)
+    .attr('marker-end','url(#arrow)');
+
+  // draw nodes
+  const node = nodeGroup.selectAll('g').data(nodes).enter().append('g').attr('class','node').call(drag(simulation));
+
+  node.append('rect')
+    .attr('rx',6).attr('ry',6)
+    .attr('x', -40)
+    .attr('y', -16)
+    .attr('height', 32)
+    .attr('width', 80)
+    .attr('stroke','#333')
+    .attr('stroke-width',1)
+    .attr('fill', d=>color(d.sem));
+
+  node.append('text')
+    .attr('text-anchor','middle')
+    .attr('alignment-baseline','middle')
+    .style('font-size','11px')
+    .text(d => d.id);
+
+  // tooltip on hover
+  node.on('mouseover', function(event, d){
+    d3.select(this).select('rect').attr('stroke-width',2).attr('stroke','#111');
+  }).on('mouseout', function(){
+    d3.select(this).select('rect').attr('stroke-width',1).attr('stroke','#333');
+  }).on('click', function(event, d){ showInfo(d); highlightNeighbors(d); });
+
+  // run simulation
+  simulation.on('tick', () => {
+    link.attr('d', d => linkArc(d));
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  // path function for arrows curved slightly
+  function linkArc(d){
+    const dx = d.target.x - d.source.x;
+    const dy = d.target.y - d.source.y;
+    const dr = Math.sqrt(dx*dx + dy*dy) * 1.2; // curvature
+    return `M${d.source.x},${d.source.y} A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+  }
+
+  // drag behavior
+  function drag(sim){
+    function dragstarted(event,d){ if(!event.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
+    function dragged(event,d){ d.fx = event.x; d.fy = event.y; }
+    function dragended(event,d){ if(!event.active) sim.alphaTarget(0); /* leave pinned */ }
+    return d3.drag().on('start',dragstarted).on('drag',dragged).on('end',dragended);
+  }
+
+  // ========== Search and filter =============
+  const searchInput = d3.select('#search');
+  searchInput.on('input', _.throttle(updateVisibility, 150));
+
+  // lodash throttle fallback if _ not available
+  if(typeof _ === 'undefined'){
+    window._ = { throttle: function(fn, wait){ let last=0; return function(){ const now=Date.now(); if(now-last>wait){ last=now; fn.apply(this,arguments); } } } };
+  }
+
+  function updateVisibility(){
+    const q = searchInput.node().value.trim().toLowerCase();
+    node.style('display', d => (visibleSems.has(d.sem) && (q==='' || (d.id+' '+d.name).toLowerCase().includes(q))) ? 'block' : 'none');
+    link.style('display', l => ( (visibleSems.has(l.source.sem) && visibleSems.has(l.target.sem)) ? 'block' : 'none'));
+  }
+
+  // ========== Layout switcher ==============
+  const layoutSelect = d3.select('#layout');
+  layoutSelect.on('change', () => applyLayout(layoutSelect.node().value));
+
+  function applyLayout(name){
+    simulation.stop();
+    if(name === 'force'){
+      simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d=>d.id).distance(120).strength(1))
+        .force('charge', d3.forceManyBody().strength(-600))
+        .force('center', d3.forceCenter(width/2, height/2))
+        .force('collide', d3.forceCollide().radius(d=>radiusFor(d)+8));
+
+    } else if(name === 'radial'){
+      // place nodes on concentric circles by semester
+      const center = {x: width/2, y: height/2};
+      const rStep = Math.min(width, height) / (2 * (sems.length + 1));
+      const positions = {};
+      sems.forEach((s, idx) => {
+        const members = nodes.filter(n => n.sem === s);
+        const r = rStep * (idx + 1) + 40;
+        members.forEach((m,i) => {
+          const angle = (i / members.length) * Math.PI * 2;
+          positions[m.id] = { x: center.x + Math.cos(angle) * r, y: center.y + Math.sin(angle) * r };
+        });
+      });
+
+      nodes.forEach(n => { n.x = positions[n.id].x; n.y = positions[n.id].y; n.vx = 0; n.vy = 0; });
+
+      // simple static layout; still draw links
+      simulation = d3.forceSimulation(nodes).stop();
+    }
+
+    simulation.on('tick', () => {
+      link.attr('d', d => linkArc(d));
+      node.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+
+    simulation.alpha(1).restart();
+  }
+
+  // ========== Interaction helpers =============
+  const infoPanel = d3.select('#infoPanel');
+  const infoTitle = d3.select('#infoTitle');
+  const infoBody = d3.select('#infoBody');
+  d3.select('#closeInfo').on('click', () => infoPanel.classed('hidden', true));
+
+  function showInfo(d){
+    infoTitle.text(d.id + ' — ' + d.name);
+    infoBody.html(`<div>Semester: <strong>S${d.sem}</strong></div><div>Credits: <strong>${d.credits || '-'} </strong></div>`);
+    // show prerequisites and dependents
+    const prereq = links.filter(l => l.target === d.id).map(l => l.source);
+    const dependents = links.filter(l => l.source === d.id).map(l => l.target);
+    if(prereq.length) infoBody.append('div').html('Prerequisites: ' + prereq.join(', '));
+    if(dependents.length) infoBody.append('div').html('Leads to: ' + dependents.join(', '));
+    infoPanel.classed('hidden', false);
+  }
+
+  function highlightNeighbors(d){
+    const neighbors = new Set([d.id]);
+    links.forEach(l => { if(l.source.id === d.id) neighbors.add(l.target.id); if(l.target.id === d.id) neighbors.add(l.source.id); });
+    node.select('rect').attr('opacity', n => neighbors.has(n.id) ? 1 : 0.15);
+    link.attr('opacity', l => (neighbors.has(l.source.id) && neighbors.has(l.target.id)) ? 1 : 0.08);
+  }
+
+  // ========== Reset and export ==========
+  d3.select('#resetBtn').on('click', () => { searchInput.node().value=''; sems.forEach(s=>visibleSems.add(s)); d3.selectAll('#semList button').classed('active', true); applyLayout('force'); updateVisibility(); });
+
+  d3.select('#exportBtn').on('click', () => {
+    const svgNode = svg.node();
+    const serializer = new XMLSerializer();
+    const source = serializer.serializeToString(svgNode);
+    const image = new Image();
+    const svgBlob = new Blob([source], {type: 'image/svg+xml;charset=utf-8'});
+    const url = URL.createObjectURL(svgBlob);
+    image.onload = function(){
+      const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+      const ctx = canvas.getContext('2d'); ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(image,0,0);
+      URL.revokeObjectURL(url);
+      const png = canvas.toDataURL('image/png');
+      const a = document.createElement('a'); a.href = png; a.download = 'course-map.png'; a.click();
+    };
+    image.src = url;
+  });
+
+  // initial visibility & layout
+  applyLayout('force'); updateVisibility();
+
+  // adjust viewBox on window resize
+  window.addEventListener('resize', () => {
+    const w = document.getElementById('graph-wrap').clientWidth;
+    const h = document.getElementById('graph-wrap').clientHeight;
+    svg.attr('viewBox', `0 0 ${w} ${h}`);
+  });
+
+  // expose for debugging
+  window.__course_map = { nodes, links };
+  </script>
+</body>
+</html>
