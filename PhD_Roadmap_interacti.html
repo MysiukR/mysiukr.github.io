@@ -143,9 +143,13 @@
 
 <script>
 const steps = [
+{ id: 0,
+    uk: { title: 'Зміна теми', detail: 'Спочатку готується обгрунтування з підписом наукового керівника, затверджується на засіданні кафедри, витяг отриманий подається до вченої ради факультету, отриманий витяг подається у відділ аспірантури для затвердження на вченій раду університету' },
+    en: { title: 'Modification of thesis name', detail: 'First, a research justification is prepared and signed by the academic supervisor. It is then approved at a department meeting. The extract from the department meeting minutes is submitted to the Faculty Academic Council, and the extract obtained from the Faculty Council is subsequently submitted to the Postgraduate Department.' }
+  },
   { id: 1, email: 'olha.zhak@lnu.edu.ua',
-    uk: { title: 'Разова рада утворюється закладом', detail: 'Разова рада утворюється закладом, в якому здобувач виконав акредитовану освітньонаукову програму.' },
-    en: { title: 'Formation of the one-time board', detail: 'The one-time board is formed by the institution where the candidate completed the accredited educational and research program.' }
+    uk: { title: 'Разова рада утворюється закладом', detail: 'Разова рада утворюється закладом, в якому здобувач виконав акредитовану освітньо-наукову програму (перевірити в ЄДБО). Повідомити про проведення наукового (випускового) семінару та перевірити наявність всіх документів та вимог' },
+    en: { title: 'Formation of the one-time board', detail: 'The one-time board is formed by the institution where the candidate completed the accredited educational and research program (перевірити в ЄДБО).' }
   },
   { id: 2,  parent: 1,
     uk: { title: 'Переведення до іншого закладу', detail: 'Здобувач, який виконує неакредитовану освітньо-наукову програму, має право у порядку, встановленому законодавством, на переведення до іншого закладу, який має акредитовану освітньо-наукову програму за відповідною спеціальністю.' },
@@ -161,9 +165,32 @@ const steps = [
   en: { title: 'Dissertation preparation', detail: 'Candidate prepares the dissertation manuscript in print and electronic formats, an abstract according to the Ministry of Education and Science of Ukraine requirements, a list and copies of publications (see Appendix 1) presenting the main results of the dissertation research, and obtains the supervisor’s review.'}
   },
   { id: 5, parent: 4,
-    uk: { title: 'Використання власних наукових праць', detail: 'Не вважається самоплагіатом використання здобувачем своїх наукових праць у тексті дисертації без посилання на ці праці, якщо вони попередньо опубліковані з метою висвітлення основних результатів.' },
-    en: { title: 'Use of own publications', detail: 'Using one’s own previously published works in the dissertation is not considered self-plagiarism if the main results are highlighted and included in the abstract.' }
+  uk: {
+    title: 'Використання власних наукових праць та мінімальна їх к-ть',
+    detail: `
+Наукові результати дисертації мають бути опубліковані щонайменше у 3 наукових публікаціях, до яких зараховуються:
+
+• статті у фахових виданнях України (якщо більше 2 співавторів — зараховується як 0,5 публікації);
+• статті у виданнях, індексованих у Web of Science Core Collection або Scopus (крім видань держави-агресора);
+• не більше одного патенту на винахід (прирівнюється до 1 публікації);
+• одноосібні монографії або розділи у колективних монографіях (за умови рецензування та рекомендації вченої ради; не видані у державі-агресорі).
+
+Стаття у виданні Q1–Q3 (SCImago або Journal Citation Reports) або одноосібна монографія прирівнюється до 2 публікацій.
+
+Квартиль визначається за рейтингом року публікації або останнім доступним на дату утворення разової ради.
+
+Додаткові умови:
+• статті мають відповідати темі дисертації;
+• не більше однієї статті в одному номері;
+• публікації після набрання чинності Порядком зараховуються лише за наявності DOI (крім матеріалів з державною таємницею).
+Не вважається самоплагіатом використання здобувачем своїх наукових праць у тексті дисертації без посилання на ці праці, якщо вони попередньо опубліковані з метою висвітлення основних результатів.`
   },
+  en: {
+    title: 'Use of own publications',
+    detail: 'Using one’s own previously published works in the dissertation is not considered self-plagiarism if the main results are highlighted and included in the abstract.'
+  }
+},
+
   { id: 6,
     uk: { title: 'Звернення до декана', detail: 'Здобувач звертається до декана з письмовою заявою щодо отримання висновку про наукову новизну; додаються дисертація, анотація, публікації, висновок наукового керівника, довідка про виконання програми.' },
     en: { title: 'Submission to the Dean', detail: 'Candidate submits an application to the Dean to obtain conclusion on novelty; includes dissertation, abstract, publications, supervisor’s review, certificate of completion.' }
@@ -335,6 +362,11 @@ function renderSteps(filter=''){
     /див\. Додаток 1/g,
     '<a href="https://aspirantura.lnu.edu.ua/wp-content/uploads/2025/06/DODATKY-do-Dorozhnoi-karty-zdobuvacha.pdf" target="_blank" rel="noopener noreferrer">див. Додаток 1</a>'
   );
+  el.innerHTML = el.innerHTML.replace(
+    /перевірити в ЄДБО/g,
+    '<a href="https://registry.edbo.gov.ua/university/282/study-programs/?q=7" target="_blank" rel="noopener noreferrer">перевірити в ЄДБО</a>'
+  );
+
 });
 }
 
@@ -441,6 +473,20 @@ function renderMonthlyCalendar(baseDate) {
 
 // Modal
 function showModal(step){
+
+  let photoHTML = '';
+
+  // Фото тільки для кроку 3
+  if(step.id === 3){
+    photoHTML = `
+      <div style="margin-top:15px;text-align:center;">
+        <img src="certificate_academ_dovidka.jpg"
+             alt="Зразок довідки"
+             style="max-width:50%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+      </div>
+    `;
+  }
+
   modalContent.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center">
       <div>
@@ -449,8 +495,12 @@ function showModal(step){
       </div>
     </div>
     <hr style="margin:12px 0">
-    <div style="font-size:15px;line-height:1.45">${step[lang].detail}</div>
+    <div style="font-size:15px;line-height:1.45;white-space:pre-wrap;">
+      ${step[lang].detail}
+      ${photoHTML}
+    </div>
   `;
+
   modal.style.display='flex';
   modal.setAttribute('aria-hidden','false');
 }
